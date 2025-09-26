@@ -1,0 +1,35 @@
+{
+  "admissions": [
+    {
+      "question": "What are the admission requirements for undergraduate programs?",
+      "answer": "The admission requirements for undergraduate programs at Federal University Wukari include: 1. Five O'Level credits including Mathematics and English, 2. UTME score of at least 180, 3. Post-UTME screening exercise, 4. Relevant subject combinations for your chosen course.",
+      "keywords": "admission, requirement, undergraduate, entry, apply"
+    },
+    {
+      "question": "How do I apply for admission?",
+      "answer": "To apply for admission: 1. Visit JAMB portal to choose Federal University Wukari as your first choice, 2. Participate in UTME, 3. Check university website for post-UTME screening details, 4. Complete online application on the university portal.",
+      "keywords": "apply, application, process, procedure, admission"
+    }
+  ],
+  "courses": [
+    {
+      "question": "What courses are offered at Federal University Wukari?",
+      "answer": "Federal University Wukari offers various courses including: Agriculture, Biochemistry, Microbiology, Computer Science, Economics, English, History, Mathematics, Physics, and more. Visit the university website for the complete list.",
+      "keywords": "courses, programs, degrees, offered, available"
+    }
+  ],
+  "registration": [
+    {
+      "question": "When is course registration for new students?",
+      "answer": "Course registration for new students typically begins 2-3 weeks after resumption. Specific dates are announced by the registry department and communicated to students via their portals and notice boards.",
+      "keywords": "registration, course, register, when, deadline"
+    }
+  ],
+  "facilities": [
+    {
+      "question": "What facilities are available on campus?",
+      "answer": "The university campus features: modern lecture halls, well-equipped laboratories, library, ICT center, hostels, sports facilities, medical center, and student union building.",
+      "keywords": "facilities, campus, hostel, library, lab"
+    }
+  ]
+}

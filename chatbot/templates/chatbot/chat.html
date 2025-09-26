@@ -1,0 +1,88 @@
+{% extends 'chatbot/base.html' %}
+
+{% block content %}
+<div class="header">
+    <h1>FU Wukari FAQ Chatbot</h1>
+    <p>Ask me about admissions, courses, registration, and facilities</p>
+</div>
+
+<div class="chat-container" id="chatContainer">
+    <div class="message bot-message">
+        Hello! I'm here to help you with Federal University Wukari information. 
+        What would you like to know about admissions, courses, or campus facilities?
+    </div>
+</div>
+
+<div class="input-area">
+    <input type="text" id="userInput" placeholder="Type your question here..." onkeypress="handleKeyPress(event)">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+    let sessionId = null;
+
+    function addMessage(message, isBot = false) {
+        const container = document.getElementById('chatContainer');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = isBot ? 'message bot-message' : 'message user-message';
+        messageDiv.textContent = message;
+        container.appendChild(messageDiv);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function sendMessage() {
+        const input = document.getElementById('userInput');
+        const message = input.value.trim();
+        
+        if (!message) return;
+        
+        addMessage(message, false);
+        input.value = '';
+        
+        fetch('/chat/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+                message: message,
+                session_id: sessionId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.response) {
+                addMessage(data.response, true);
+                sessionId = data.session_id;
+            } else if (data.error) {
+                addMessage('Sorry, I encountered an error. Please try again.', true);
+            }
+        })
+        .catch(error => {
+            addMessage('Sorry, there was a connection error. Please try again.', true);
+        });
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    }
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+{% endblock %}
