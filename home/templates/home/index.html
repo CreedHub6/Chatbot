@@ -3,302 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schoolbot - Modern AI Assistant</title>
+    <title>Federal University Wukari - Student Portal</title>
     <style>
-        /* Modern CSS Reset */
+        :root {
+            --fuw-green: #1b5e20;
+            --fuw-gold: #ffd700;
+            --light-gray: #f4f4f4;
+            --white: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Modern Variables */
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-color: #6366f1;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-white: #ffffff;
-            --bg-gray: #f8fafc;
-            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            --shadow-xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
-            --border-radius: 16px;
-        }
-
-        /* Base Styles */
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg-gray);
-            min-height: 100vh;
-            line-height: 1.6;
-            color: var(--text-dark);
+            background-color: var(--light-gray);
         }
 
-        /* Modern Hero Section */
-        .modern-hero {
-            background: var(--primary-gradient);
-            min-height: 100vh;
+        /* Top Brand Header */
+        .top-banner {
+            background-color: var(--white);
+            border-bottom: 5px solid var(--fuw-green);
+            padding: 15px 5%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+            justify-content: space-between;
         }
 
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 10;
-            padding: 2rem;
-            max-width: 1200px;
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin: 0 auto 2rem;
+        .logo-area {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            gap: 20px;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
+        /* Using your provided URL for the Logo */
+        .logo-area img {
+            height: 90px;
+            width: auto;
+        }
+
+        .brand-text h1 {
+            color: var(--fuw-green);
+            font-size: 1.6rem;
+            text-transform: uppercase;
             font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .brand-text p {
+            color: #444;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        /* Modern Features Grid */
-        .features-grid {
+        /* Hero Section with your Image */
+        .portal-hero {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://share.google/images/vVYkvRWydEt8TTSn2');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        /* Quick Action Grid */
+        .content-container {
+            max-width: 1200px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+        }
+
+        .action-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
+            gap: 20px;
         }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--border-radius);
-            padding: 2rem;
+        .action-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--fuw-gold);
             text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .feature-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+        .action-card:hover {
+            transform: translateY(-5px);
         }
 
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary-gradient);
-            border-radius: 16px;
-            margin: 0 auto 1.5rem;
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: var(--fuw-green);
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 15px;
             font-size: 1.5rem;
         }
 
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .action-card h3 {
+            color: var(--fuw-green);
+            margin-bottom: 10px;
         }
 
-        .feature-card p {
-            opacity: 0.8;
-            font-size: 0.95rem;
+        /* Footer */
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 30px;
+            text-align: center;
+            font-size: 0.9rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            margin-top: 4rem;
-        }
-
-        .cta-text {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .chat-hint {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        /* Modern Dialogflow Messenger Styling */
+        /* Dialogflow Styling */
         df-messenger {
-            --df-messenger-button-titlebar-color: #6366f1;
-            --df-messenger-button-color: #6366f1;
-            --df-messenger-chat-background: #ffffff;
-            --df-messenger-chat-border-radius: 20px;
-            --df-messenger-font-color: #1f2937;
-            --df-messenger-input-box-color: #f8fafc;
-            --df-messenger-input-font-color: #1f2937;
-            --df-messenger-user-message-color: #6366f1;
-            --df-messenger-bot-message-color: #f1f5f9;
-            --df-messenger-icon-size: 64px;
-            --df-messenger-box-shadow: var(--shadow-xl);
+            --df-messenger-button-titlebar-color: var(--fuw-green);
+            --df-messenger-user-message-color: var(--fuw-green);
+            --df-messenger-font-color: #333;
         }
 
-        /* Custom scrollbar for modern look */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .feature-card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Animation for features */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feature-card {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .feature-card:nth-child(1) { animation-delay: 0.1s; }
-        .feature-card:nth-child(2) { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) { animation-delay: 0.3s; }
-        .feature-card:nth-child(4) { animation-delay: 0.4s; }
     </style>
-    
-    <!-- Import Inter font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="modern-hero">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <div class="logo">🎓</div>
-            <h1>Schoolbot AI</h1>
-            <p>Your intelligent education assistant powered by advanced AI. Get instant help with homework, research, and learning.</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI Powered</h3>
-                    <p>Advanced artificial intelligence to understand and solve complex educational problems</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Instant Answers</h3>
-                    <p>Get immediate responses to your questions 24/7 without waiting</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Personalized</h3>
-                    <p>Tailored explanations and learning paths based on your needs</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Multi-Subject</h3>
-                    <p>Comprehensive support across all subjects and educational levels</p>
-                </div>
+
+    <div class="top-banner">
+        <div class="logo-area">
+            <img src="https://share.google/images/vVYkvRWydEt8TTSn2" alt="FUW Logo">
+            <div class="brand-text">
+                <h1>Federal University, Wukari</h1>
+                <p>Character, Excellence & Service</p>
             </div>
-            
-            <div class="cta-section">
-                <p class="cta-text">Ready to enhance your learning experience?</p>
-                <div class="chat-hint">
-                    <span>Click the chat button to start</span>
-                    <span>👇</span>
-                </div>
+        </div>
+        <div style="text-align: right; display: none;" class="d-none-mobile">
+            <button style="padding: 10px 20px; background: var(--fuw-green); color: white; border: none; cursor: pointer; border-radius: 4px;">Login to Portal</button>
+        </div>
+    </div>
+
+    <section class="portal-hero">
+        <div class="hero-box">
+            <h2>Student AI Learning Portal</h2>
+            <p>Access school resources, news, and support in one place.</p>
+        </div>
+    </section>
+
+    <div class="content-container">
+        <div class="action-grid">
+            <div class="action-card">
+                <div class="icon-circle">📂</div>
+                <h3>Course Reg</h3>
+                <p>Register your courses for the current semester online.</p>
+            </div>
+            <div class="action-card">
+                <div class="icon-circle">📜</div>
+                <h3>Results</h3>
+                <p>Check and print your academic performance reports.</p>
+            </div>
+            <div class="action-card">
+                <div class="icon-circle">💸</div>
+                <h3>Payments</h3>
+                <p>Pay your tuition and other charges via Remita.</p>
             </div>
         </div>
     </div>
 
-    <!-- Dialogflow Messenger -->
+    <footer>
+        <p>&copy; 2025 Federal University Wukari. All Rights Reserved.</p>
+        <p>Powered by Schoolbot AI Assistant</p>
+    </footer>
+
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger
         intent="WELCOME"
-        chat-title="Schoolbot AI"
+        chat-title="FUW Support Bot"
         agent-id="50a6f9fe-e63c-4bd5-89cd-002312188f47"
         language-code="en"
     ></df-messenger>
+
 </body>
 </html>
+
