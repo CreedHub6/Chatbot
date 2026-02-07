@@ -3,199 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Federal University Wukari - Student Portal</title>
+    <title>FUWUKARI - Modern Student Portal</title>
     <style>
         :root {
-            --fuw-green: #1b5e20;
-            --fuw-gold: #ffd700;
-            --light-gray: #f4f4f4;
-            --white: #ffffff;
+            /* Sophisticated Modern Greens */
+            --emerald-dark: #064e3b;
+            --emerald-mid: #065f46;
+            --emerald-light: #059669;
+            --fuw-gold: #fbbf24;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --modern-gradient: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #059669 100%);
+            --soft-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--light-gray);
+            background-color: #ffffff;
+            color: #1f2937;
+            overflow-x: hidden;
         }
 
-        /* Top Brand Header */
-        .top-banner {
-            background-color: var(--white);
-            border-bottom: 5px solid var(--fuw-green);
-            padding: 15px 5%;
+        /* Modern Frosted Header */
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0.75rem 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo-area {
+        .logo-box { display: flex; align-items: center; gap: 12px; }
+        .logo-box img { height: 50px; border-radius: 6px; }
+        .logo-box h1 { 
+            font-size: 1.1rem; 
+            font-weight: 800; 
+            background: var(--modern-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        /* Hero with Modern Gradient Mesh */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            padding: 100px 5% 50px;
+            background: var(--modern-gradient);
             display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
+            overflow: hidden;
         }
 
-        /* Using your provided URL for the Logo */
-        .logo-area img {
-            height: 90px;
-            width: auto;
+        /* Background Pattern Overlay */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://share.google/images/vVYkvRWydEt8TTSn2');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: luminosity;
         }
 
-        .brand-text h1 {
-            color: var(--fuw-green);
-            font-size: 1.6rem;
-            text-transform: uppercase;
+        .hero-text {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            color: white;
+        }
+
+        .hero-text h2 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
             font-weight: 800;
         }
 
-        .brand-text p {
-            color: #444;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+        /* Modern Glass Login Card */
+        .login-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 24px;
+            width: 400px;
+            box-shadow: var(--soft-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Hero Section with your Image */
-        .portal-hero {
-            height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://share.google/images/vVYkvRWydEt8TTSn2');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
+        .login-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--emerald-dark);
             text-align: center;
         }
 
-        .hero-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-        }
-
-        /* Quick Action Grid */
-        .content-container {
-            max-width: 1200px;
-            margin: -50px auto 50px;
-            padding: 0 20px;
-        }
-
-        .action-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .action-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-bottom: 4px solid var(--fuw-gold);
-            text-align: center;
+        .login-card input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 12px;
+            outline: none;
             transition: 0.3s;
         }
 
-        .action-card:hover {
-            transform: translateY(-5px);
+        .login-card input:focus {
+            border-color: var(--emerald-light);
+            box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
         }
 
-        .icon-circle {
-            width: 70px;
-            height: 70px;
-            background: var(--fuw-green);
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--modern-gradient);
             color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(6, 78, 59, 0.3);
+            transition: 0.3s;
         }
 
-        .action-card h3 {
-            color: var(--fuw-green);
-            margin-bottom: 10px;
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 78, 59, 0.4);
         }
 
-        /* Footer */
+        /* Floating Feature Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: -60px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--emerald-light);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: var(--modern-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         footer {
-            background: #222;
-            color: #ccc;
-            padding: 30px;
+            background: #f9fafb;
+            padding: 60px 5%;
             text-align: center;
-            font-size: 0.9rem;
+            border-top: 1px solid #eee;
         }
 
-        /* Dialogflow Styling */
+        /* Chatbot Style Match */
         df-messenger {
-            --df-messenger-button-titlebar-color: var(--fuw-green);
-            --df-messenger-user-message-color: var(--fuw-green);
-            --df-messenger-font-color: #333;
+            --df-messenger-button-titlebar-color: var(--emerald-dark);
+            --df-messenger-user-message-color: var(--emerald-mid);
+            --df-messenger-font-color: #1f2937;
         }
-
     </style>
 </head>
 <body>
 
-    <div class="top-banner">
-        <div class="logo-area">
-            <img src="https://share.google/images/vVYkvRWydEt8TTSn2" alt="FUW Logo">
-            <div class="brand-text">
-                <h1>Federal University, Wukari</h1>
-                <p>Character, Excellence & Service</p>
-            </div>
+    <header class="header">
+        <div class="logo-box">
+            <h1>Federal University Wukari</h1>
         </div>
-        <div style="text-align: right; display: none;" class="d-none-mobile">
-            <button style="padding: 10px 20px; background: var(--fuw-green); color: white; border: none; cursor: pointer; border-radius: 4px;">Login to Portal</button>
-        </div>
-    </div>
+    </header>
 
-    <section class="portal-hero">
-        <div class="hero-box">
-            <h2>Student AI Learning Portal</h2>
-            <p>Access school resources, news, and support in one place.</p>
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Redefining the <span style="color: var(--fuw-gold);">Student</span> Experience.</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Secure access to academic results, registration, and our advanced AI Schoolbot.</p>
+        </div>
+
+        <div class="login-card">
+            <h3>Student Portal</h3>
+            <input type="text" placeholder="Reg Number / Matric Number">
+            <input type="password" placeholder="Password">
+            <button class="login-btn">Sign In to Dashboard</button>
+            <div style="margin-top: 20px; text-align: center; font-size: 0.85rem;">
+                <a href="#" style="color: #6b7280; text-decoration: none;">Help Desk</a> &bull; 
+                <a href="#" style="color: #6b7280; text-decoration: none;">Reset Password</a>
+            </div>
         </div>
     </section>
 
-    <div class="content-container">
-        <div class="action-grid">
-            <div class="action-card">
-                <div class="icon-circle">📂</div>
-                <h3>Course Reg</h3>
-                <p>Register your courses for the current semester online.</p>
-            </div>
-            <div class="action-card">
-                <div class="icon-circle">📜</div>
-                <h3>Results</h3>
-                <p>Check and print your academic performance reports.</p>
-            </div>
-            <div class="action-card">
-                <div class="icon-circle">💸</div>
-                <h3>Payments</h3>
-                <p>Pay your tuition and other charges via Remita.</p>
-            </div>
+    <div class="features">
+        <div class="card">
+            <span class="card-icon">🔐</span>
+            <h4 style="margin-bottom: 10px;">Secure Access</h4>
+            <p style="color: #6b7280; font-size: 0.9rem;">Encrypted login for all current and prospective students of FUW.</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">🧠</span>
+            <h4 style="margin-bottom: 10px;">AI Assistant</h4>
+            <p style="color: #6b7280; font-size: 0.9rem;">Chat with Schoolbot for help with registration and campus info.</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">⚡</span>
+            <h4 style="margin-bottom: 10px;">Quick Payments</h4>
+            <p style="color: #6b7280; font-size: 0.9rem;">Integrated Remita system for fast and verified fee processing.</p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Federal University Wukari. All Rights Reserved.</p>
-        <p>Powered by Schoolbot AI Assistant</p>
+        <p style="font-weight: 700; color: var(--emerald-dark);">Federal University, Wukari</p>
+        <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 8px;">Character · Excellence · Service</p>
     </footer>
 
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-        intent="WELCOME"
-        chat-title="FUW Support Bot"
-        agent-id="50a6f9fe-e63c-4bd5-89cd-002312188f47"
-        language-code="en"
-    ></df-messenger>
+    <a href="https://t.me/Chatbot5159_bot" class="telegram-btn">
+	     Chat with school Assistant
+    </a>
+    
 
 </body>
 </html>
